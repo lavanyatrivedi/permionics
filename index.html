@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permionics FAQ Portal - Water Management Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --p-blue: #1565C0;
+      --p-blue-l: #E3F2FD;
+      --p-teal: #00796B;
+      --p-teal-l: #E0F2F1;
+      --p-amber: #E65100;
+      --p-amber-l: #FFF3E0;
+      --p-green: #2E7D32;
+      --p-green-l: #E8F5E9;
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F5F5F5;
+      --text-primary: #212121;
+      --text-secondary: #757575;
+      --border-color: #E0E0E0;
+      --card-radius: 8px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #F8F9FA 0%, #EEF2F5 50%, #E3F2FD 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .faq-header {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 30%, #0097A7 70%, #00897B 100%);
+      color: white;
+      padding: 72px 24px 64px 24px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .faq-header::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(20px); }
+    }
+
+    .faq-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 1.5px;
+      position: relative;
+      z-index: 1;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .faq-header p {
+      font-size: 16px;
+      opacity: 0.94;
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      font-weight: 300;
+      line-height: 1.8;
+      letter-spacing: 0.3px;
+    }
+
+    /* Container */
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 14px 16px 14px 44px;
+      font-size: 14px;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--card-radius);
+      background: var(--bg-primary);
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--p-blue);
+      box-shadow: 0 0 0 3px var(--p-blue-l);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      font-size: 18px;
+    }
+
+    /* Highlight Cards */
+    .highlight-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .highlight-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      padding: 28px 24px;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .highlight-card:hover {
+      border-color: var(--p-blue);
+      box-shadow: 0 8px 24px rgba(21, 101, 192, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Tabs */
+    .faq-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 32px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .faq-tabs::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .faq-tabs::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .faq-tabs::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 2px;
+    }
+
+    .tab-btn {
+      padding: 14px 18px;
+      border: none;
+      background: none;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      position: relative;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .tab-btn.active {
+      color: var(--p-blue);
+      border-bottom-color: var(--p-blue);
+    }
+
+    /* Content Sections */
+    .faq-section {
+      display: none;
+    }
+
+    .faq-section.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* FAQ Item */
+    .faq-item {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: var(--p-blue);
+      box-shadow: 0 2px 8px rgba(21, 101, 192, 0.1);
+    }
+
+    .faq-question {
+      padding: 18px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--bg-primary);
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background: var(--bg-secondary);
+    }
+
+    .faq-question-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      flex: 1;
+      text-align: left;
+    }
+
+    .faq-toggle {
+      font-size: 20px;
+      color: var(--p-blue);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    /* Answer */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 1000px;
+    }
+
+    .faq-answer-text {
+      padding: 0 20px 20px 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .faq-answer-text strong {
+      color: var(--text-primary);
+    }
+
+    .faq-answer-text ul, .faq-answer-text ol {
+      margin: 12px 0 12px 20px;
+    }
+
+    .faq-answer-text li {
+      margin-bottom: 8px;
+    }
+
+    .faq-answer-text a {
+      color: var(--p-blue);
+      text-decoration: none;
+    }
+
+    .faq-answer-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Tags/Badges */
+    .faq-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-right: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tag-general { background: var(--p-blue-l); color: var(--p-blue); }
+    .tag-wastewater { background: var(--p-teal-l); color: var(--p-teal); }
+    .tag-highpurity { background: var(--p-green-l); color: var(--p-green); }
+    .tag-financial { background: var(--p-amber-l); color: var(--p-amber); }
+
+
+
+    /* Footer */
+    .faq-footer {
+      background: var(--bg-secondary);
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      margin-top: 48px;
+    }
+
+    .faq-footer p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .faq-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .faq-footer-links a {
+      font-size: 13px;
+      color: var(--p-blue);
+      text-decoration: none;
+    }
+
+    .faq-footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .faq-header h1 {
+        font-size: 28px;
+      }
+
+      .faq-container {
+        padding: 24px 16px;
+      }
+
+      .faq-tabs {
+        gap: 4px;
+      }
+
+      .tab-btn {
+        padding: 12px 14px;
+        font-size: 12px;
+      }
+
+      .faq-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .faq-footer-links {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-header {
+        padding: 32px 16px;
+      }
+
+      .faq-header h1 {
+        font-size: 24px;
+      }
+
+      .faq-question {
+        padding: 16px;
+      }
+
+      .faq-answer-text {
+        padding: 0 16px 16px 16px;
+      }
+
+      .faq-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="faq-header">
+  <h1>Frequently Asked Questions</h1>
+  <p>Explore common questions about Permionics water management solutions across all industry segments</p>
+</div>
+
+<div class="faq-container">
+  
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="text" class="search-input" id="searchInput" placeholder="Search FAQs...">
+  </div>
+
+  <!-- Highlight Cards -->
+  <div class="highlight-cards">
+    <div class="highlight-card">
+      <div class="card-icon">🌐</div>
+      <div class="card-title">7 Industry Topics</div>
+      <div class="card-desc">From wastewater recovery to ultra-pure water</div>
+    </div>
+    <div class="highlight-card">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">45+ FAQs</div>
+      <div class="card-desc">Comprehensive answers to real client questions</div>
+    </div>
+    <div class="highlight-card">
+      <div class="card-icon">🏆</div>
+      <div class="card-title">50 Years Heritage</div>
+      <div class="card-desc">Proven expertise in membrane technology</div>
+    </div>
+  </div>
+
+
+
+  <!-- Tabs -->
+  <div class="faq-tabs">
+    <button class="tab-btn active" onclick="showSection('general')">General</button>
+    <button class="tab-btn" onclick="showSection('wastewater')">Wastewater</button>
+    <button class="tab-btn" onclick="showSection('highpurity')">High Purity</button>
+    <button class="tab-btn" onclick="showSection('process')">Process</button>
+    <button class="tab-btn" onclick="showSection('financial')">Financial</button>
+    <button class="tab-btn" onclick="showSection('operational')">Operational</button>
+    <button class="tab-btn" onclick="showSection('regulatory')">Regulatory</button>
+    <button class="tab-btn" onclick="showSection('membranes')">Membranes</button>
+  </div>
+
+  <!-- GENERAL SECTION -->
+  <div id="general" class="faq-section active">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What exactly does Permionics do? How is it different from regular water treatment?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          We're not a generic water treatment company. We design <strong>custom membrane-based solutions</strong> for specific industrial challenges - whether it's recovering active compounds from pharma waste, achieving ultra-pure water for solar manufacturing, or enabling complete water reuse at chemical plants. Unlike conventional systems that treat and discharge, our solutions focus on <strong>water recovery, reuse, and zero liquid discharge</strong>. With 45+ years of heritage and 10,000+ successful installations, we've perfected membrane chemistry and application-specific engineering.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What's the difference between UF, NF, and RO? Which one do I need?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Think of it as filtration by pore size:
+          <ul>
+            <li><strong>Ultrafiltration (UF):</strong> Removes suspended solids, bacteria, viruses (about 0.01 microns). Good for pre-treatment.</li>
+            <li><strong>Nanofiltration (NF):</strong> Removes smaller molecules like hardness, organic compounds (about 0.001 microns). Middle ground.</li>
+            <li><strong>Reverse Osmosis (RO):</strong> Removes dissolved salts and almost all contaminants (about 0.0001 microns). For highest purity.</li>
+          </ul>
+          We typically combine these in <strong>multi-stage systems</strong> because they work better together. For example: UF arrow RO arrow EDI gives you ultra-pure water. We analyze your specific water challenge and design accordingly.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What's Zero Liquid Discharge (ZLD) and why should I care?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          ZLD means <strong>nothing goes to drain</strong> - every drop of wastewater is either recovered for reuse or converted to solid waste (dry sludge). It sounds extreme, but it's increasingly a regulatory requirement and a major cost-saver. Instead of paying for wastewater discharge (which is increasingly expensive), you recover 80-95% of water for reuse. Our Waaree solar client recovered 10 MLD water daily - that's 3.65 million liters annually. No discharge penalties, lower freshwater bills.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WASTEWATER SECTION -->
+  <div id="wastewater" class="faq-section">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">Can your systems handle our specific wastewater? (API / Chemical / Food processing, etc.)</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Yes. Our "Low Fouling RO" membranes are specifically designed for high-COD, high-BOD industrial effluents - think pharmaceutical APIs, chemical processing, food waste. We've handled streams with COD up to 5000 PPM. The key is <strong>custom pre-treatment</strong>. Our engineers analyze your exact wastewater chemistry, then build the right pre-treatment (UF, chemical dosing, pH adjustment) before the RO stage. Every industry has different contaminants; we match the membrane to the contaminant.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">Our ETP discharge is already treated - can we still reuse it?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Absolutely. This is where our <strong>RO + Brine Concentrator system</strong> shines. Your ETP discharge (typically 4-6% TDS) goes through our RO, recovering 85-95% as clean water (<200 PPM TDS) that goes back to your process. The remaining brine gets concentrated 4-5x, cutting evaporation costs by 70%. A Nandesari chemical estate client did this - 20 MLD plant, now using recovered water for all production and cooling needs.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">How much water can you actually recover? And what quality?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Recovery rates depend on your input water quality, but typically <strong>85-95% for industrial wastewater</strong>. Quality is consistent: <200 PPM TDS for most processes, <50 PPM for sensitive applications. A corn processing plant achieved 90% recovery with water quality going back to their process meeting ZLD norms. The recovered water often exceeds your process requirement, so you can use it for cooling, cleaning, or even reintroduce to production.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIGH PURITY SECTION -->
+  <div id="highpurity" class="faq-section">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">We need 18 Mega Ohms water for solar manufacturing. How do you achieve that level of purity?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          We combine <strong>High Pressure RO + Electrodeionization (EDI) + Polishing resins</strong>. Each stage removes different contaminants:
+          <ul>
+            <li>RO removes 99% of salts</li>
+            <li>EDI removes remaining ionic contaminants</li>
+            <li>Final resin polish gets you to 18+ Mega Ohms</li>
+          </ul>
+          The Waaree solar client produces 10 MLD at 18 Mega Ohms daily, meeting global wafer manufacturing specs. It requires precision, but it's repeatable and consistent.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What's the difference between "ultrapure water" and just RO water?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <ul>
+            <li><strong>RO water:</strong> About 0.5-5 Mega Ohms (good for cooling, general process)</li>
+            <li><strong>High-purity water:</strong> 10-14 Mega Ohms (semiconductors, pharma formulation)</li>
+            <li><strong>Ultra-pure water:</strong> 15-18+ Mega Ohms (solar wafers, advanced electronics)</li>
+          </ul>
+          The difference is operational complexity and cost. Ultra-pure requires EDI + polishing, which is more expensive but essential for wafer quality. Regular RO won't cut it if your wafer yield depends on less than 2 PPB ionic contaminants.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">How do you handle silica and fluoride? (Common in semiconductor & solar feed water)</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>Silica removal</strong> is tricky because silica can pass through RO if not managed. We use specialized <strong>silica-selective membranes</strong> + chemical conditioning to precipitate silica before RO. <strong>Fluoride</strong> is handled via dedicated ion-exchange resins in the polishing stage. Solar & semiconductor feeds are our specialty - these contaminants are expected, and our system design accounts for them.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS SECTION -->
+  <div id="process" class="faq-section">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">We need to recover active compounds from our wastewater (pharma/APIs). Is this possible?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Yes, and it's lucrative. Our <strong>Ultrafiltration + Nanofiltration + RO combination</strong> is specifically designed for active compound recovery. The UF concentrates large molecules (active compounds), then NF refines, then RO purifies. A pharma megacorp recovered <strong>10% yield improvement</strong> from wastewater, directly impacting revenue. The recovered compound is high-purity and meets pharma specs. We analyze your specific compound chemistry and design accordingly.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">Can you handle wastewater with suspended solids, oils, or heavy metals?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Oils and heavy metals require <strong>pre-treatment before membrane stages</strong>:
+          <ul>
+            <li>Oils arrow Coalescer or dissolved air flotation (DAF)</li>
+            <li>Heavy metals arrow Chemical precipitation + settling</li>
+            <li>Suspended solids arrow Dual-media filtration or our Ultra-Fine Filtration</li>
+          </ul>
+          Our <strong>Turbocatch system</strong> (Hollow Fiber UF) is specifically engineered for variable water quality and handles turbidity spikes, colloidal silica, residual color, and BOD/COD better than conventional sand filters. It's used in food processing, inks & dyes, and textile industries.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What's this "Low Fouling RO" membrane I've heard about?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Standard RO membranes foul (clog) when handling high-COD industrial wastewater. Our <strong>HPA Low Fouling RO</strong> has improved hydrophilicity and can handle COD up to 5000 PPM. Translation: your wastewater stays cleaner on the membrane, so it runs longer without cleaning, reducing operational headaches. <strong>Fouling equals expensive downtime; low fouling equals consistent operation</strong>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCIAL SECTION -->
+  <div id="financial" class="faq-section">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What's the typical ROI? How long until we see payback?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          For <strong>wastewater recovery</strong>, ROI is typically <strong>less than 1 year</strong> (sometimes 6 months). Here's why: freshwater cost + wastewater discharge cost + reduced chemical/energy use equals fast savings. A pharma client saw less than 1 yr ROI with 70% evaporation cost reduction + 10% yield recovery. For <strong>ultra-pure water</strong>, ROI depends on how much you're currently spending on bottled/vendor-supplied ultra-pure water. If you're buying expensive ultra-pure water externally, in-house production pays for itself in 2-3 years.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What's the actual cost per cubic meter (M3) of water treated?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Operating cost (excluding capex) is typically:
+          <ul>
+            <li><strong>Standard RO:</strong> Rs 50-100 / M3</li>
+            <li><strong>Low Fouling RO (high-COD waste):</strong> Rs 100-150 / M3</li>
+            <li><strong>Ultra-pure water:</strong> Rs 150-250 / M3</li>
+            <li><strong>Zero Liquid Discharge (full system):</strong> Rs 150-200 / M3 (after accounting for water recovery value)</li>
+          </ul>
+          Compare this to: freshwater cost (Rs 20-40 / M3) + wastewater discharge penalties (Rs 50-150 / M3) + evaporation costs (Rs 200-400 / M3 for thermal systems). Our system often becomes the <strong>cheaper option</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">Should we buy (Capex) or lease (BOO)?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Depends on your risk appetite and cash flow:
+          <ul>
+            <li><strong>Capex (Buy):</strong> Full ownership, higher upfront cost, long-term asset</li>
+            <li><strong>BOO (Build-Own-Operate):</strong> We own & operate, you pay per M3, predictable costs, no O&M hassle</li>
+            <li><strong>Hybrid:</strong> We build, you operate, shared responsibility</li>
+          </ul>
+          Our Nandesari client uses BOO for their 20 MLD system - 20 MLD water sold daily to 150 industries at metered rates. No capex for them, predictable water cost.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPERATIONAL SECTION -->
+  <div id="operational" class="faq-section">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">How much maintenance does a membrane system require? Is it complicated?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Membrane systems are <strong>simpler than you'd think</strong>. Routine maintenance includes:
+          <ul>
+            <li>Monthly cartridge pre-filter changes (15 mins)</li>
+            <li>Quarterly membrane cleaning (chemical wash, 2-4 hrs)</li>
+            <li>Biannual professional membrane inspection</li>
+            <li>Regular SCADA monitoring (automated, alerts for issues)</li>
+          </ul>
+          Our <strong>fully automated SCADA system</strong> means you don't need specialized expertise - standard plant operators can run it. Most maintenance is predictive (we know when fouling is increasing and schedule cleaning before failure).
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">How often do membranes need replacement? What's the typical life?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          With proper pre-treatment and maintenance, membranes last <strong>3-5 years</strong>. Some of our clients have pushed to 6-7 years. When replacement is needed, it's a 1-2 day job. Membrane cost is typically <strong>20-30% of annual operating cost</strong>, so not a major shock. The real cost saver is preventing fouling through good pre-treatment design - this is where our expertise pays off.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">Can we operate this ourselves or do we need Permionics staff?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          You can <strong>operate independently</strong> with our training. We typically provide:
+          <ul>
+            <li>2-week onsite training for your operators</li>
+            <li>Detailed SOPs (Standard Operating Procedures)</li>
+            <li>24/7 remote support for troubleshooting</li>
+            <li>Annual preventive maintenance visits</li>
+          </ul>
+          Many clients (Nandesari, Waaree) manage their systems independently. If you prefer hands-off, we offer <strong>managed O&M contracts</strong> - we send technicians quarterly, monitor SCADA remotely, and you just use the water.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGULATORY SECTION -->
+  <div id="regulatory" class="faq-section">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">Will your system help us meet environmental compliance?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Absolutely. Compliance typically requires:
+          <ol>
+            <li><strong>Effluent discharge limits:</strong> Our RO can achieve any TDS/COD/BOD limit required</li>
+            <li><strong>Water discharge reduction:</strong> ZLD systems eliminate liquid discharge entirely</li>
+            <li><strong>Documentation & monitoring:</strong> Our SCADA generates compliance reports automatically</li>
+          </ol>
+          A pharma plant avoided penalties through ZLD compliance. A chemical estate (Nandesari) gained approval to operate 150 industries because of water reuse infrastructure.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What happens if regulations become stricter? Is the system futureproof?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Yes. Most regulatory tightening affects <strong>discharge limits</strong> (TDS, COD, BOD limits getting stricter) or <strong>water usage</strong> (freshwater allocation decreasing). Our system handles both:
+          <ul>
+            <li>Stricter discharge? Better pre-treatment + RO polishing achieves any limit</li>
+            <li>Less freshwater available? Water reuse solves it</li>
+          </ul>
+          The system is designed for <strong>headroom</strong> - it exceeds current regulations, so future-proofing is built in.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">Can you help us with ESG / sustainability reporting?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Yes. Our clients report:
+          <ul>
+            <li>Water recycled (tons/year)</li>
+            <li>Freshwater reduction (%)</li>
+            <li>Wastewater diverted from discharge (tons/year)</li>
+            <li>Carbon footprint reduction (via reduced ETP chemical use, less evaporation, etc.)</li>
+          </ul>
+          Waaree's 10 MLD ZLD system recycled 3.65 billion liters annually - a major ESG win. We provide the data; you showcase the impact.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEMBRANES SECTION -->
+  <div id="membranes" class="faq-section">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">Why is Permionics membrane quality better than generic suppliers?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          We <strong>manufacture our own membranes</strong> (India's first state-of-the-art facility). This means:
+          <ul>
+            <li>Custom chemistry for specific applications (not off-the-shelf)</li>
+            <li>Full control over quality and consistency</li>
+            <li>Ability to tweak membrane properties for your exact challenge</li>
+            <li>R&D backing - we innovate, not just repackage</li>
+          </ul>
+          Our HPA Low Fouling RO, for instance, can't be bought from commodity suppliers. It's engineered for high-COD streams specifically.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">What's the difference between spiral-wound and hollow-fiber membranes?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <ul>
+            <li><strong>Spiral-wound (RO/NF):</strong> Flat sheet sandwiched in a spiral. High pressure, good for recovery systems, excellent for TDS removal</li>
+            <li><strong>Hollow-fiber (UF):</strong> Thin tubes. Lower pressure, good for pre-treatment, excellent for particulates</li>
+          </ul>
+          We use <strong>both</strong>. UF as pre-treatment (hollow-fiber), then RO for final polishing (spiral-wound). Each excels at its job.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <div class="faq-question-text">How do you prevent or manage membrane fouling?</div>
+        <div class="faq-toggle">▼</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>Prevention is better than cure</strong>. Our approach:
+          <ol>
+            <li>Right pre-treatment: Remove foulants before they reach membrane</li>
+            <li>Membrane selection: Low-fouling chemistry for dirty streams</li>
+            <li>Operational discipline: Right pressure, pH, temperature settings</li>
+            <li>Cleaning schedule: Proactive cleaning before fouling worsens</li>
+            <li>Additives: Anti-scalant in feed to prevent salt deposits</li>
+          </ol>
+          Our <strong>Turbocatch pre-treatment</strong> (UF-based) is engineered to reduce fouling by 50+ % vs sand filters.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="faq-footer">
+  <p>Still have questions? Get in touch with our team</p>
+  <div class="faq-footer-links">
+    <a href="mailto:contact@permionics.com">contact@permionics.com</a>
+    <a href="https://www.permionics.com">www.permionics.com</a>
+    <a href="https://linkedin.com/company/permionicsmembrane">LinkedIn</a>
+  </div>
+</div>
+
+<script>
+  function showSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('.faq-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    
+    // Show selected section
+    document.getElementById(sectionId).classList.add('active');
+    event.target.classList.add('active');
+
+    // Close all FAQs when switching sections
+    document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
+  }
+
+  function toggleFaq(element) {
+    const item = element.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  // Search functionality
+  document.getElementById('searchInput').addEventListener('keyup', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const question = item.querySelector('.faq-question-text').textContent.toLowerCase();
+      const answer = item.querySelector('.faq-answer-text').textContent.toLowerCase();
+      
+      if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
